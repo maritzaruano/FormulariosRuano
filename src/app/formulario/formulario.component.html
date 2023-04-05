@@ -1,0 +1,235 @@
+<section>
+    <div class="container">
+      <div class="row align-items-center justify-content-between o-hidden">
+        <div class="col-sm-12 col-md-7">
+          <div style="width: auto">
+            <picture>
+              <source
+                type="image/png"
+                data-srcset="https://www.promotec.com.co/assets/imagenes/landings/mascotas/banner-mascotas.png"
+                srcset="
+                  https://www.promotec.com.co/assets/imagenes/landings/mascotas/banner-mascotas.png
+                "
+              />
+              <img
+                data-src=".."
+                src="https://www.promotec.com.co/assets/imagenes/landings/mascotas/banner-mascotas.png"
+                alt="Protege a tu peludo las 24/7"
+                width="640"
+                height="340"
+                class="auto-height ls-is-cached lazyloaded"
+              />
+            </picture>
+          </div>
+        </div>
+        <div class="col-sm-12 col-md-5">
+  
+        <div id="pnlNotifyForm">
+            <!-- Title -->
+            <h1 class="mb-4 text-center">
+              Cotiza el seguro para tu mascota aquí
+            </h1>
+            <!-- Input A -->
+            <form class="row g-3"
+                [formGroup]="mascotaForm"
+                (ngSubmit)="onSubmit()"
+                >
+                <div class="col-md-6">
+                    <label class="form-label">Nombre*</label>
+                    <input 
+                        type="text" 
+                        class="form-control" 
+                        formControlName="nombre" 
+                       
+                        />
+                    <div *ngIf="mascotaForm.controls['nombre'].invalid">
+                        <div *ngIf="mascotaForm.get('nombre')?.errors?.['required']"
+                            class="form-text text-danger">
+                            Requerido
+                        </div>
+                        <div *ngIf="mascotaForm.get('nombre')?.errors?.['minlength']"
+                            class="form-text text-danger">
+                            minimo 6 caracteres
+                        </div>
+                        <div *ngIf="mascotaForm.get('nombre')?.errors?.['maxlength']"
+                            class="form-text text-danger">
+                            maximo 50 caracteres
+                        </div>
+                    </div>               
+                </div>
+         
+              
+                <div class="col-md-6">
+                    <label class="form-label">Apellido*</label>
+                    <input 
+                        type="text"
+                        class="form-control" 
+                        formControlName="apellido"
+                        
+                    />                
+                    <div *ngIf="mascotaForm.controls['apellido'].invalid">
+                        <div *ngIf="mascotaForm.get('apellido')?.errors?.['required']"
+                            class="form-text text-danger">
+                            Requerido
+                        </div>
+                        <div *ngIf="mascotaForm.get('apellido')?.errors?.['minlength']"
+                            class="form-text text-danger">
+                            minimo 6 caracteres
+                        </div>
+                        <div *ngIf="mascotaForm.get('apellido')?.errors?.['maxlength']"
+                            class="form-text text-danger">
+                            maximo 50 caracteres
+                        </div>
+                    </div>
+                </div>
+              
+                <div class="col-md-6">
+                    <label  class="form-label">Email*</label>
+                    <input type="email" class="form-control" formControlName="email"  />
+                    
+                    <div *ngIf="mascotaForm.controls['email'].invalid">
+                        <div *ngIf="mascotaForm.get('email')?.errors?.['required']"
+                            class="form-text text-danger">
+                            Requerido
+                        </div>
+                        <div *ngIf="mascotaForm.get('email')?.errors?.['email']"
+                            class="form-text text-danger">
+                            correo invalido
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <label  class="form-label">Password*</label>
+                    <input type="password" class="form-control" formControlName="password" />
+
+                    <div *ngIf="mascotaForm.controls['password'].invalid">
+                        <div *ngIf="mascotaForm.get('password')?.errors?.['required']"
+                            class="form-text text-danger">
+                            Requerido
+                        </div>
+                        <div *ngIf="mascotaForm.get('password')?.errors?.['pattern']"
+                            class="form-text text-danger">
+                            Minimo 9 caracteres
+                            Una mayuscula
+                            Una minuscula
+                            Un numero
+                            Un caracter especial
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+                <div class="col-md-6">
+                    <label class="form-label">Nombre Mascota*</label>
+                    <input type="text" class="form-control"  formControlName="NombreMascota"  />
+
+                    <div *ngIf="mascotaForm.controls['NombreMascota'].invalid">
+                        <div *ngIf="mascotaForm.get('NombreMascota')?.errors?.['required']"
+                            class="form-text text-danger">
+                            Requerido
+                        </div>
+                        <div *ngIf="mascotaForm.get('NombreMascota')?.errors?.['minlength']"
+                            class="form-text text-danger">
+                            minimo 6 caracteres
+                        </div>
+                        <div *ngIf="mascotaForm.get('NombreMascota')?.errors?.['maxlength']"
+                            class="form-text text-danger">
+                            maximo 20 caracteres
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                        <label for="inputState" class="form-label">Genero*</label>
+                        <select id="inputState" class="form-select" formControlName="genero" >
+                        <option selected>Macho</option>
+                        <option>Hembra</option>
+                        </select>
+                    
+                    <div *ngIf="mascotaForm.controls['genero'].invalid">
+                        <div *ngIf="mascotaForm.get('genero')?.errors?.['required']"
+                            class="form-text text-danger">
+                            Requerido
+                        </div>                        
+                    </div>
+                </div>            
+
+
+              
+                <div class="col-12">
+                    <label  class="form-label">Direccion Casa</label>
+                    <input
+                    type="text"
+                    class="form-control"
+                    formControlName="direccionCasa" 
+                    />
+                    <div *ngIf="mascotaForm.controls['direccionCasa'].invalid">
+                        <div *ngIf="mascotaForm.get('direccionCasa')?.errors?.['required']"
+                            class="form-text text-danger">
+                            Requerido
+                        </div>                        
+                    </div>
+                </div>
+
+
+
+                <div class="col-12">
+                    <label  class="form-label">Direccion Oficina</label>
+                    <input
+                    type="text"
+                    class="form-control"
+                    formControlName="direcionOficina" 
+                    />
+                </div>
+
+                <div class="col-md-6">
+                    <label class="form-label">Ciudad*</label>
+                    <input type="text" class="form-control" formControlName="ciudad"  />
+                    <div *ngIf="mascotaForm.controls['ciudad'].invalid">
+                        <div *ngIf="mascotaForm.get('ciudad')?.errors?.['required']"
+                            class="form-text text-danger">
+                            Requerido
+                        </div>                        
+                    </div>
+                </div>
+    
+                <div class="col-md-6">
+                    <label class="form-label">Telefono*</label>
+                    <input type="number" class="form-control"  formControlName="telefono" />
+                    <div *ngIf="mascotaForm.controls['telefono'].invalid">
+                        <div *ngIf="mascotaForm.get('telefono')?.errors?.['required']"
+                            class="form-text text-danger">
+                            Requerido
+                        </div> 
+                        <div *ngIf="mascotaForm.get('telefono')?.errors?.['min']"
+                            class="form-text text-danger">
+                            minimo 6 caracteres
+                        </div>
+                        <div *ngIf="mascotaForm.get('telefono')?.errors?.['max']"
+                            class="form-text text-danger">
+                            maximo 20 caracteres
+                        </div>                       
+                    </div>                    
+                </div>
+
+
+                <div class="col-12 text-center">
+                    <button type="submit" class="btn btn-warning px-5 shadow-3d">
+                    Solicitar Asesoria
+                    </button>
+                </div>
+              
+            </form>
+  
+
+  
+         
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
